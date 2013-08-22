@@ -3,7 +3,7 @@
 ##Background
 Three years ago, @ericbarch and myself created the Kettering Open Source Club to fill the gap in computing clubs at Kettering university. As a club president, I learned many things about leadership and the bureaucracy that is KSG(Kettering Student Government). 
 
-One of the requirements was that a formal sign-in be administered at each meeting. These sheets would be turned in weekly and used by KSG to determine how much money your club got based on attendance reported by the attendance. Simple right? 
+One of the requirements was that a formal sign-in be administered at each meeting. These sheets would be turned in weekly and used by KSG to determine how much money your club got based on attendance reported by the sign in sheets. Simple right? 
 
 It was pretty easy though to lose or forget to turn in a sheet. KSG also tried (and failed miserably) to implement a digital sign-in system in which clubs were required to put sign-in sheets onto non-Kettering owned IT assets (Dropbox/Google Drive). Managing the privileges in this system was a nightmare. There had to be a better way.
 
