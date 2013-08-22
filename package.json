@@ -1,10 +1,10 @@
 {
-  "name": "node-express-mongoose",
-  "description": "A boilerplate application for express mongoose",
+  "name": "Kettering-clubs-app",
+  "description": "An application to help clubs send in their sign-in sheets",
   "version": "0.0.1",
   "author": {
-    "name": "Madhusudhan Srinivasa",
-    "email": "me@madhums.me"
+    "name": "Don Ebben",
+    "email": "ebbe8674@kettering.edu"
   },
   "engines": {
     "node": "0.10.x",
@@ -26,7 +26,8 @@
     "view-helpers": "latest",
     "jade": "latest",
     "async": "latest",
-    "forever": "latest"
+    "forever": "latest",
+    "passport-google-oauth": "latest"
   },
   "devDependencies": {
     "nodemon": "latest",

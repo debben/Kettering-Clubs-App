@@ -11,17 +11,17 @@ var mongoose = require('mongoose')
 var fs = require('fs')
 
 require('express-namespace')
-
+console.log('Connecting to database');
 mongoose.connect(config.db)
 
 // Bootstrap models
 fs.readdirSync(__dirname + '/app/models').forEach(function (file) {
-  if (~file.indexOf('.js')) require(__dirname + '/app/models/' + file)
+  if (~file.indexOf('.js')) require(__dirname + '/app/models/' + file)(config)
 })
 
 // Bootstrap passport config
 require('./config/passport')(passport, config)
-
+console.log('configuring express app');
 var app = express()
 
 // Bootstrap application settings

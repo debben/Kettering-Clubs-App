@@ -5,50 +5,80 @@
 
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
-var userPlugin = require('mongoose-user')
+var mongooseAuth = require("mongoose-auth");
 
-/**
- * User schema
- */
+var  authTypes = ['google'];
 
-var UserSchema = new Schema({
-  name: { type: String, default: '' },
-  email: { type: String, default: '' },
-  hashed_password: { type: String, default: '' },
-  salt: { type: String, default: '' }
-})
 
-/**
- * User plugin
- */
-
-UserSchema.plugin(userPlugin, {})
-
-/**
- * Add your
- * - pre-save hooks
- * - validations
- * - virtuals
- */
-
-/**
- * Methods
- */
-
-UserSchema.method({
-
-})
-
-/**
- * Statics
- */
-
-UserSchema.static({
-
-})
-
-/**
- * Register
- */
-
-mongoose.model('User', UserSchema)
+module.exports = function(config){
+    /**
+     * User schema
+     */
+    
+    var UserSchema = new Schema({}), User;
+    
+    
+    
+    /**
+     * User plugin
+     */
+    
+    UserSchema.plugin(mongooseAuth, {
+        everymodule: {
+          everyauth: {
+              User: function () {
+                return User;
+              }
+          }
+        },
+         google: {
+          everyauth: {
+              myHostname: 'http://kettering-clubs-app.debben.c9.io/'
+            , appId: config.google.clientID
+            , appSecret: config.google.clientSecret
+            , redirectPath: '/'
+            , scope: [
+        'https://www.googleapis.com/auth/userinfo.profile',
+        'https://www.googleapis.com/auth/userinfo.email'
+      ]
+          }
+        }
+    }
+    );
+    
+    
+    
+    /**
+     * Add your
+     * - pre-save hooks
+     * - validations
+     * - virtuals
+     */
+    
+    /**
+     * Methods
+     */
+    
+    
+    UserSchema.method({
+    
+    })
+    
+    /**
+     * Validations
+     */
+     
+     
+    
+    /**
+     * Statics
+     */
+    
+    UserSchema.statics.skipValidation = true;
+    
+    /**
+     * Register
+     */
+    
+    mongoose.model('User', UserSchema)
+}
